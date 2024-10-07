@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Javascript/js-curso-2-aula1/secret.number"
+		},
+		{
+			"path": "../Html e CSS/7responsividade"
+		},
+		{
+			"path": "../Html e CSS/3356-java-web-front-main"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "financial transactions frontend"
+	}
+}
