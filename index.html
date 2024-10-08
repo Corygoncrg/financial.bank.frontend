@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,11 +23,11 @@
                     <div class="form__div">
                         <div class="form__tr">
                             <h2 class="form__text">File to upload:</h2>
-                            <label for="file" class="label__button">Choose a file to upload</label> <td class="form__text"> <input type="file" name="file" id="file" value="file" required/></td>
+                            <label for="file" class="label__button">Choose a file to upload</label> <input type="file" name="file" id="file" value="file" required />
                         </div>
                         <div class="form__upload">
                             <label class="label__button" for="submit">Upload</label>
-                            <input class="botton blue" type="submit" value="Upload" />
+                            <input type="submit" id="submit" /> 
                         </div>
                     </div>
                 </form>
@@ -37,11 +37,9 @@
 
     <section class="table__section">
         <!-- List of uploaded files -->
+        <h2 class="form__text"> Imports made: </h2>
         <div class="list__div">
             <ul>
-                <li class="transaction__list" each="file : ${files}">
-                    <p onsubmit="displayTransactions()" href="${transaction_date}" text="${transaction_date}"></p> <p href="${import_date}" text="${import_date}"></p>
-                </li>
             </ul>
         </div>
     </section>

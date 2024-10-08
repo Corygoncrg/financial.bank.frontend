@@ -11,7 +11,7 @@
 }
 
 .form__text {
-    font-size: 1em;
+    font-size: 2em;
     font-weight: 500;
 }
 
@@ -38,7 +38,7 @@ input[type="submit"] {
 
 .label__button {
     padding: 10px 5px;
-    background-color: var(--cta-blue);
+    background-color: var(--blue);
     color: var(--white);
     justify-content: center;
     display: flex;
@@ -52,29 +52,21 @@ input[type="submit"] {
     border-style: none;
 }
 
-.botton {
-    border-radius: 3px;
-    width: 25vh;
-    
-    font-size: 1.2em;
-    
-    border-style: none;
-}
-
-.blue {
-    margin-top: 3vh;
-    background-color: var(--blue);
-    color: var(--black);
+.label__button:hover {
+    background-color: var(--cta-blue);
 }
 
 .table__section {
     margin-top: 100px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .list__div {
     border: 1px solid var(--black);
     width: 100vh;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    text-align: center;
 }

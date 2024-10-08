@@ -1,16 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('/files')
+    fetch('/transactions')
         .then(response => response.json())
-        .then(files => {
+        .then(transactions => {
             const list = document.querySelector('.list__div ul');
-            files.forEach(file => {
+            list.innerHTML = '';
+
+
+            transactions.forEach(transaction => {
                 const listItem = document.createElement('li');
-                const link = document.createElement('a');
-                link.href = file;
-                link.textContent = file;
-                listItem.appendChild(link);
+                listItem.classList.add('transaction__list');
+
+                const transactionDate = document.createAttribute('p');
+                transactionDate.textContent = `Transaction Date: ${new Date(transaction.transactionDate).toLocaleString()}`;
+                
+                const importDate = document.createAttribute('p');
+                importDate.textContent = `Import Date: ${new Date(transaction.importDate).toLocaleString()}`;
+
+                listItem.appendChild(transactionDate);
+                listItem.appendChild(importDate);
                 list.appendChild(listItem);
             });
         })
-        .catch(error => console.error('Error fetching files:', error));
+        .catch(error => console.error('Error fetching transactions:', error));
 });
