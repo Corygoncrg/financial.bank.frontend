@@ -1,5 +1,0 @@
-let transactions = [];
-
-function displayTransactions {
-    
-}

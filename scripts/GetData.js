@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const listItem = document.createElement('li');
                 listItem.classList.add('transaction__list');
 
-                const transactionDate = document.createAttribute('p');
+                const transactionDate = document.createElement('p');
                 transactionDate.textContent = `Transaction Date: ${new Date(transaction.transactionDate).toLocaleString()}`;
                 
-                const importDate = document.createAttribute('p');
+                const importDate = document.createElement('p');
                 importDate.textContent = `Import Date: ${new Date(transaction.importDate).toLocaleString()}`;
 
                 listItem.appendChild(transactionDate);
