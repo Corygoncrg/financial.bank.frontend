@@ -1,12 +1,14 @@
 @import url(/styles/header.css);
 @import url(/styles/form.css);
+@import url(/styles/navbar.css);
 
 :root {
     --main-font: 'Montserrat', sans-serif;
     --black: #181818;
     --white: #fff;
-    --blue: #8de9e9;
-    --cta-blue : #6ab9b9;
+    --light-blue: #91e2e2;
+    --blue: #73d4d4;
+    --cta-blue : #5caaaa;
     --gray: #c3c9cc;
 }
 
@@ -18,7 +20,6 @@
 body {
     font-family: var(--main-font);
     color: var(--black);
-    margin-top: 1.5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,6 +27,16 @@ body {
     
 }
 
+:any-link {
+    text-decoration: none;
+    color: var(--black);
+}
+
 ul {
     list-style-type:decimal;
+  }
+
+  .hero__main {
+
+    width: 80%;
   }
