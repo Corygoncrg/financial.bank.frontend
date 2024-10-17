@@ -14,6 +14,64 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "financial transactions frontend"
+		"liveServer.settings.multiRootWorkspaceName": "financial transactions frontend",
+		"sqltools.connections": [
+			{
+				"mysqlOptions": {
+					"authProtocol": "default",
+					"enableSsl": "Disabled"
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 3306,
+				"driver": "MySQL",
+				"name": "Alura-Conhecendo-Sql",
+				"database": "alura_sql",
+				"username": "root",
+				"password": "123"
+			},
+			{
+				"mysqlOptions": {
+					"authProtocol": "default",
+					"enableSsl": "Disabled"
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 3306,
+				"driver": "MySQL",
+				"name": "Fokus",
+				"database": "Fokus",
+				"username": "root",
+				"password": "123"
+			},
+			{
+				"mysqlOptions": {
+					"authProtocol": "default",
+					"enableSsl": "Disabled"
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 3306,
+				"driver": "MySQL",
+				"name": "Backend-Challenge-2",
+				"password": "123",
+				"username": "root",
+				"database": "alura_c2"
+			},
+			{
+				"mysqlOptions": {
+					"authProtocol": "default",
+					"enableSsl": "Disabled"
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 3306,
+				"driver": "MySQL",
+				"name": "Backend-Challenge-3",
+				"database": "alura_c3",
+				"password": "123",
+				"username": "root"
+			}
+		]
 	}
 }
