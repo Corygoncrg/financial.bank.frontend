@@ -1,29 +1,12 @@
-.user__button {
-    width: 15ch;
-    height: 2em;
-    margin: 2px 0 2px 0;
-    background: var(--blue);
-    border-radius: 10px;
-    border: none;
-  }
-  
-  .button__div {
-    width: 100%;
-  }
-  
-  .red {
-    background-color: var(--red);
-  }
-
-  .list__div {
-    padding: 15px;
-    border: 1px solid var(--black);
-    width: 70vw;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
+.list__div {
+  padding: 15px;
+  border: 1px solid var(--black);
+  width: 70vw;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .even__title {
@@ -40,9 +23,54 @@
   align-items: center;
 }
 
+.button__div {
+  width: 100%;
+}
 
-.user__list {
-  display: grid; 
-  grid-auto-rows: minmax(200px, auto);
- 
+.user__button {
+  width: 15ch;
+  height: 2em;
+  margin: 2px 0 2px 0;
+  background: var(--blue);
+  border-radius: 10px;
+  border: none;
+   cursor: pointer;
+  }
+
+.user__button:hover {
+  background: var(--cta-blue);
+  }
+  
+.red {
+  color: var(--white);
+  background: var(--red);
+  }
+
+.red:hover {
+  background: var(--cta-red);
+  }
+
+
+.edit__div {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 50vh;
+  background: var(--white);
+  justify-content: center;
+  
+  
+  position:absolute;
+
+  border: 1px solid var(--black);
+  }
+
+.input__div {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.padding__left {
+  padding-left: 15px;
 }
