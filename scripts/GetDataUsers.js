@@ -16,22 +16,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 const id = document.createElement('p');
                 id.textContent = `${(user.id).toLocaleString()}`;
                 
-                const name = document.createElement('p')
+                const name = document.createElement('p');
                 name.textContent = `${(user.name).toLocaleString()}`
 
                 const email = document.createElement('p');
                 email.textContent = `${(user.email).toLocaleString()}`;
 
-                const editButton = document.createElement('button')
+                const editButton = document.createElement('button');
                 editButton.textContent = 'Edit';
-                editButton.classList.add('user__button')
+                editButton.classList.add('user__button');
+                editButton.addEventListener('click', async () => {
+                    await showMenu(user.id, user.name, user.email, user.status)
+                });
 
-                const deleteButton = document.createElement('button')
+                const deleteButton = document.createElement('button');
                 deleteButton.textContent = 'Delete';
                 deleteButton.classList.add('user__button' ,'red');
+                deleteButton.addEventListener('click', async () => {
+                    await deleteUser((user.id));
+                })
+                
 
                 const div = document.createElement('div');
-                div.classList.add('button__div')
+                div.classList.add('button__div');
                 div.appendChild(editButton);
                 div.appendChild(deleteButton);
                 //Use Ajax to the functions to edit and delete users from the database
@@ -45,7 +52,4 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error fetching transactions:', error));
 });
-function deleteUser(id) {
-    
-}
 

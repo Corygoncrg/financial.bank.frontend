@@ -29,8 +29,8 @@
     <section class="section"> 
         <div class="list__div"> 
             <div class="even__title">
-            <h3>ID</h3> <h3>USERNAME</h3> <h3>EMAIL</h3> <h3>OPTIONS</h3>
-        </div>
+                <h3>ID</h3> <h3>USERNAME</h3> <h3>EMAIL</h3> <h3>OPTIONS</h3>
+            </div>
             <ul>
                 <li class="even__menu"> <p>1</p>
                     <p>example</p>
@@ -41,7 +41,9 @@
                     </div>
                 </li>
             </ul>
-            <div class="edit__div">
+            <div id="div__container"></div>
+
+            <!-- <div class="edit__div">
                 <div class="input__div">  
                     <p class="padding__left">example</p>
                     <input type="text" id="update__name" placeholder="name">
@@ -53,13 +55,17 @@
                     <input type="email" id="update__email" placeholder="example@email.com">
                 </div>
                 <div class="form__upload">
-                <label class="label__button" for="update">Update</label>
-                <button type="submit" onclick="updateUser()" id="update"></button>
-            </div>
+                    <label class="label__button" for="update">Update</label>
+                    <button type="submit" onclick="updateUser()" id="update"></button>
+                </div>
+            </div> -->
         </div>
+
     </section>
 
     <script src="scripts/navbar.js"></script>
-    <script src="scripts/button.js"></script>
+    <script src="scripts/HttpRequest.js"></script>
+    <script src="scripts/GetDataUsers.js"></script>
+    <script src="scripts/editUser.js"></script>
 </body>
 </html>
