@@ -6,9 +6,9 @@ async function showMenu(id, name, email, status) {
         .then(data => {
             document.getElementById("div__container").innerHTML = data;
 
-            document.getElementById("currentName").innerHTML = name;
-            document.getElementById("currentEmail").innerHTML = email;
-            document.getElementById("currentStatus").innerHTML = status;
+            document.getElementById("current__name").innerHTML = name;
+            document.getElementById("current__email").innerHTML = email;
+            document.getElementById("current__status").innerHTML = status;
 
 
 

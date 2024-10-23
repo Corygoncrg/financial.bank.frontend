@@ -54,7 +54,7 @@
 .edit__div {
   position:absolute;
   top: 25vh;
-  left: 50%;
+  left: 25vw;
   padding: 5px;
   display: flex;
   flex-direction: column;
