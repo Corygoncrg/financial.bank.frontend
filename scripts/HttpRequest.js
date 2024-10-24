@@ -41,23 +41,23 @@ async function putUser(id){
 
     console.log(updatedUserData)
 
-//     const options = {
-//         method: "PUT",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(updatedUserData)};
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updatedUserData)};
 
-//             try {
-//                 const response = await fetch(url, options);
-//                 if (response.ok) {
-//                     const json = await response.text();
-//                     console.log("User updated:", json);
-//                     document.getElementById('div__container').innerHTML = '';
-//                 } else {
-//                     console.log("Update failed with status:", response.status);
-//                 }
-//             } catch (error) {
-//                 console.error("Error updating user:", error);
-//             }
+            try {
+                const response = await fetch(url, options);
+                if (response.ok) {
+                    const json = await response.text();
+                    console.log("User updated:", json);
+                    document.getElementById('div__container').innerHTML = '';
+                } else {
+                    console.log("Update failed with status:", response.status);
+                }
+            } catch (error) {
+                console.error("Error updating user:", error);
+            }
 }
