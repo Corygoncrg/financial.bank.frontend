@@ -1,4 +1,3 @@
-
 async function showMenu(id, name, email, status) {
 
     fetch('editUser.html')
@@ -10,11 +9,24 @@ async function showMenu(id, name, email, status) {
             document.getElementById("current__email").innerHTML = email;
             document.getElementById("current__status").innerHTML = status;
 
+            modal = document.getElementById('div__modal');
+
+            modal.style.display = "block";
 
 
-            document.getElementById("update").setAttribute('onclick', `putUser(${id})`);
+            document.getElementById("update").setAttribute('onclick', `updateUser(${id})`);
                 }
             )  
              .catch(error => console.error('Error loading edit form:', error));
             ; 
+            
 }
+
+var modal = document.getElementById('div__modal');
+
+window.onclick = function(event) {
+    // Check if the clicked target is the modal but NOT the form inside it
+    if (event.target == modal && !event.target.closest('.edit__div')) {
+        modal.style.display = "none";
+    }
+};

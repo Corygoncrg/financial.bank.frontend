@@ -1,9 +1,22 @@
-const baseURL = 'http://localhost:8081';
-const endpoint = '/users'
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetch(`${baseURL}${endpoint}`)
-        .then(response => response.json())
+    const token = localStorage.getItem('token');
+
+    fetch(`${baseURL}${endpoint}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`, // Include token in the header
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.status === 401) {
+            // Redirect to login if token is invalid or expired
+            window.location.href = "html/login.html";
+        }
+        return response.json();
+    })
+    
         .then(users => {
             const list = document.querySelector('.list__div ul');
             list.innerHTML = '';
@@ -51,5 +64,5 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         })
         .catch(error => console.error('Error fetching transactions:', error));
-});
+ });
 

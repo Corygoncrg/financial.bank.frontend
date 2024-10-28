@@ -1,4 +1,9 @@
+
 document.addEventListener("DOMContentLoaded", function () {
+    if (!localStorage.getItem('token')) {
+        // Redirect to login if token is missing
+        return;
+    }
     fetch('navbar.html')
       .then(response => response.text())
         .then(data => {
