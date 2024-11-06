@@ -2,15 +2,17 @@
 @import url(/styles/form.css);
 @import url(/styles/navbar.css);
 @import url(/styles/user.css);
+@import url(/styles/import-details.css);
 
 :root {
     --main-font: 'Montserrat', sans-serif;
-    --black: #181818;
     --white: #fff;
+    --light-gray: #eeeeee;
+    --gray: #c3c9cc;
+    --black: #181818;
     --light-blue: #91e2e2;
     --blue: #73d4d4;
     --cta-blue : #5caaaa;
-    --gray: #c3c9cc;
     --red: #ce3e3e;
     --cta-red: #a72828;
 }
@@ -65,4 +67,8 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.flex {
+  display: flex;
 }

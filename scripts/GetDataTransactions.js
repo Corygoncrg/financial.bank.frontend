@@ -1,8 +1,9 @@
+const baseURL1 = 'http://localhost:8080';
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('/transactions', {
+
+    fetch(`${baseURL1}/transactions`, {
         method: 'GET',
         headers: {
-            'Authorization': `Bearer ${token}`, // Include token in the header
             'Content-Type': 'application/json'
         }
     })
@@ -22,8 +23,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 const importDate = document.createElement('p');
                 importDate.textContent = `Import Date: ${new Date(transaction.importDate).toLocaleString()}`;
 
+                const name = document.createElement('p');
+                name.textContent = `User: ${(transaction.idUser).toLocaleString()}`;
+               
+                const detailButton = document.createElement('button');
+                detailButton.textContent = 'Details';
+                detailButton.classList.add('user__button');
+                detailButton.addEventListener('click', async () => {
+                    await showMenu(user.id, user.name, user.email, user.status)
+                });
+
+
                 listItem.appendChild(transactionDate);
                 listItem.appendChild(importDate);
+                listItem.appendChild(name);
+                listItem.appendChild(detailButton);
                 list.appendChild(listItem);
             });
         })
