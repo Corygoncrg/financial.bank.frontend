@@ -23,7 +23,6 @@ async function login() {
         const response = await fetch(url, options);
         if (response.ok) {
             const json = await response.json();
-            console.log("User logged-in:", json);
 
             localStorage.setItem('token', json.token);
 

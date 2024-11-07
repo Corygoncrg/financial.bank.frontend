@@ -19,23 +19,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const transactionDate = document.createElement('p');
                 transactionDate.textContent = `Transaction Date: ${new Date(transaction.transactionDate).toLocaleString()}`;
-                
-                const importDate = document.createElement('p');
-                importDate.textContent = `Import Date: ${new Date(transaction.importDate).toLocaleString()}`;
+
+                const rawImportDate = new Date(transaction.importDate);
+                const formattedImportDate = formatDateToISOString(rawImportDate);
+                const importDateText = document.createElement('p');
+                importDateText.textContent = `Import Date: ${new Date(transaction.importDate).toLocaleString()}`;
 
                 const name = document.createElement('p');
                 name.textContent = `User: ${(transaction.idUser).toLocaleString()}`;
-               
+
                 const detailButton = document.createElement('button');
                 detailButton.textContent = 'Details';
                 detailButton.classList.add('user__button');
                 detailButton.addEventListener('click', async () => {
-                    await showMenu(user.id, user.name, user.email, user.status)
+                    sessionStorage.setItem('importDate', formattedImportDate);
+                    window.location.href = 'import-details.html';
                 });
 
-
                 listItem.appendChild(transactionDate);
-                listItem.appendChild(importDate);
+                listItem.appendChild(importDateText);
                 listItem.appendChild(name);
                 listItem.appendChild(detailButton);
                 list.appendChild(listItem);
@@ -43,3 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error fetching transactions:', error));
 });
+
+function formatDateToISOString(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+}

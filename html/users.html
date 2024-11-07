@@ -6,13 +6,7 @@
     <title>User</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
-    <script>
-        // Check for token in localStorage
-        if (!localStorage.getItem('token')) {
-            // Redirect to login if token is missing
-            window.location.href = "login.html";
-        }
-    </script>
+    <script src="/scripts/tokenValidation.js"></script>
 </head>
 <body>
     <nav id="navbar__container" class="navbar"></nav>
