@@ -3,6 +3,7 @@
 @import url(/styles/navbar.css);
 @import url(/styles/user.css);
 @import url(/styles/import-details.css);
+@import url(/styles/analysis.css);
 
 :root {
     --main-font: 'Montserrat', sans-serif;

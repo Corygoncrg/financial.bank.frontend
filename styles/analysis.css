@@ -1,0 +1,45 @@
+.date__container {
+    margin: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-self: baseline;
+    width: 100%;
+
+}
+
+.date__month {
+    height: 2em;
+}
+
+.suspected__accounts__header, .suspected__accounts__row {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1.3fr 1fr ;
+    padding: 5px 0px;
+
+}
+
+.suspected__accounts__header, .suspected__agencies__header{
+    font-weight: 600;
+}
+
+
+.suspected__agencies__header, .suspected__agencies__row {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1.5fr 1fr  ;
+    padding: 5px 0px;
+
+}
+
+.suspected__agencies__row:nth-child(odd), .suspected__accounts__row:nth-child(odd) {
+    background-color: var(--light-gray);
+}
+.suspected__agencies__row:nth-child(even) , .suspected__accounts__row:nth-child(even) {
+    background-color: var(--white);
+}
+
+.suspected__agencies__row p {
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+}

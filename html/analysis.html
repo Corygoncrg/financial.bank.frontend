@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <nav id="navbar__container" class="navbar"></nav>
+    <header id="header__container" class="header__class"></header>
+
+    <section class="section">
+
+        <h2>Suspect transactions search</h2>
+
+        <div class="date__container">
+            <h3>Select a month to analyze the transactions</h3>
+            <div>
+                <span>
+                  <label for="month">Month:</label>
+                  <select id="month" name="month">
+                    <option value="01" selected>January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                  </select>
+                </span>
+                <span>
+                  <label for="year">Year:</label>
+                  <select id="year" name="year"></select>
+                </span>
+                <label class="label__button" for="submit">Analyse</label>
+            <input type="submit" id="submit" onclick="searchTransactions()">
+              </div>
+        </div>
+
+        <h2>Suspected transactions</h2>
+
+        <div class="import__div">
+            <div class="import__header">
+                <p>Origin - Bank</p>
+                <p>Agency</p>
+                <p>Account</p>
+                <p>Destiny - Bank</p>
+                <p>Agency</p>
+                <p>Account</p>
+                <p>Value</p>
+            </div>
+
+            <div id="import__grid">
+
+                <div class="import__row">
+                    <p>Banco do Brasil</p>
+                    <p>0001</p>
+                    <p>00001-1</p>
+                    <p>Banco Santander</p>
+                    <p>0001</p>
+                    <p>00001d-1</p>
+                    <p>R$790,000.00</p>
+                </div>
+                <div class="import__row">
+                    <p>Banco do Brasil</p>
+                    <p>0001</p>
+                    <p>00001-1</p>
+                    <p>Banco Santander</p>
+                    <p>0001</p>
+                    <p>00001d-1</p>
+                    <p>R$790,000.00</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Suspected Accounts</h2>
+
+        <div class="import__div">
+
+            <div class="suspected__accounts__header">
+                <p>bank</p>
+                <p>agency</p>
+                <p>account</p>
+                <p>value moved</p>
+                <p>transfer type</p>
+            </div>
+
+            <div class="suspected__accounts__row">
+                <p>banco do bra</p>
+                <p>00001</p>
+                <p>00001-1</p>
+                <p>R$1,000,000.00</p>
+                <p>Exit</p>
+            </div>
+            <div class="suspected__accounts__row">
+                <p>banco do bra</p>
+                <p>00001</p>
+                <p>00001-1</p>
+                <p>R$1,000,000.00</p>
+                <p>Exit</p>
+            </div>
+        </div>
+        <h2>Suspected Agencies</h2>
+
+        <div class="import__div">
+
+            <div class="suspected__agencies__header">
+                <p>bank</p>
+                <p>agency</p>
+                <p>value moved</p>
+                <p>transfer type</p>
+            </div>
+
+            <div class="suspected__agencies__row">
+                <p>BAnk of AMERICA</p>
+                <p>AGGENCY</p>
+                <p>R$1,100,000,000.00</p>
+                <p>Enter</p>
+            </div>
+            <div class="suspected__agencies__row">
+                <p>BAnk of AMERICA</p>
+                <p>AGGENCY</p>
+                <p>R$1,100,000,000.00</p>
+                <p>Enter</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="/scripts/analysis.js"></script>
+</body>
+
+</html>

@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('No transactions available');
             }
 
-            const list = document.querySelector('.import__grid');
+            const list = document.getElementById('.import__grid');
             list.innerHTML = '';
 
             transactions.forEach(transaction => {
