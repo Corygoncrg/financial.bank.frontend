@@ -20,29 +20,29 @@
             <h3>Select a month to analyze the transactions</h3>
             <div>
                 <span>
-                  <label for="month">Month:</label>
-                  <select id="month" name="month">
-                    <option value="01" selected>January</option>
-                    <option value="02">February</option>
-                    <option value="03">March</option>
-                    <option value="04">April</option>
-                    <option value="05">May</option>
-                    <option value="06">June</option>
-                    <option value="07">July</option>
-                    <option value="08">August</option>
-                    <option value="09">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                  </select>
+                    <label for="month">Month:</label>
+                    <select id="month" name="month">
+                        <option value="01" selected>January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
                 </span>
                 <span>
-                  <label for="year">Year:</label>
-                  <select id="year" name="year"></select>
+                    <label for="year">Year:</label>
+                    <select id="year" name="year"></select>
                 </span>
                 <label class="label__button" for="submit">Analyse</label>
-            <input type="submit" id="submit" onclick="searchTransactions()">
-              </div>
+                <input type="submit" id="submit" onclick="searchTransactions()">
+            </div>
         </div>
 
         <h2>Suspected transactions</h2>
@@ -93,19 +93,22 @@
                 <p>transfer type</p>
             </div>
 
-            <div class="suspected__accounts__row">
-                <p>banco do bra</p>
-                <p>00001</p>
-                <p>00001-1</p>
-                <p>R$1,000,000.00</p>
-                <p>Exit</p>
-            </div>
-            <div class="suspected__accounts__row">
-                <p>banco do bra</p>
-                <p>00001</p>
-                <p>00001-1</p>
-                <p>R$1,000,000.00</p>
-                <p>Exit</p>
+            <div id="suspected__accounts__grid">
+
+                <div class="suspected__accounts__row">
+                    <p>banco do bra</p>
+                    <p>00001</p>
+                    <p>00001-1</p>
+                    <p>R$1,000,000.00</p>
+                    <p>Exit</p>
+                </div>
+                <div class="suspected__accounts__row">
+                    <p>banco do bra</p>
+                    <p>00001</p>
+                    <p>00001-1</p>
+                    <p>R$1,000,000.00</p>
+                    <p>Exit</p>
+                </div>
             </div>
         </div>
         <h2>Suspected Agencies</h2>
@@ -119,17 +122,21 @@
                 <p>transfer type</p>
             </div>
 
-            <div class="suspected__agencies__row">
-                <p>BAnk of AMERICA</p>
-                <p>AGGENCY</p>
-                <p>R$1,100,000,000.00</p>
-                <p>Enter</p>
-            </div>
-            <div class="suspected__agencies__row">
-                <p>BAnk of AMERICA</p>
-                <p>AGGENCY</p>
-                <p>R$1,100,000,000.00</p>
-                <p>Enter</p>
+            <div id="suspected__agencies__grid">
+
+
+                <div class="suspected__agencies__row">
+                    <p>BAnk of AMERICA</p>
+                    <p>AGGENCY</p>
+                    <p>R$1,100,000,000.00</p>
+                    <p>Enter</p>
+                </div>
+                <div class="suspected__agencies__row">
+                    <p>BAnk of AMERICA</p>
+                    <p>AGGENCY</p>
+                    <p>R$1,100,000,000.00</p>
+                    <p>Enter</p>
+                </div>
             </div>
         </div>
     </section>
