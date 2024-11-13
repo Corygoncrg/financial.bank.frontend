@@ -25,7 +25,12 @@ async function searchTransactions() {
         method: 'GET'
     })
         .then(response => response.json())
+
         .then(transactions => {
+            if(transactions == '') {
+                alert(`No suspect transactions found for the ${date}`)
+                return;
+            }
             const list = document.getElementById('import__grid');
             list.innerHTML = '';
 

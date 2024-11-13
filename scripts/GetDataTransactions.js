@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             transactions.forEach(transaction => {
+                console.log(transaction);
                 const listItem = document.createElement('li');
                 listItem.classList.add('transaction__list');
 
