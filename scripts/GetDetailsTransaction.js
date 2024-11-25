@@ -11,22 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(transactions => {
             if (transactions.length > 0) {
-                // Assuming these values come from the first transaction
                 const firstTransaction = transactions[0];
     
                 const importedBy = document.getElementById('byJs');
-                importedBy.innerText = firstTransaction.idUser || 'N/A'; // Replace with correct property if needed
+                importedBy.innerText = firstTransaction.idUser || 'N/A';
     
                 const inportedIn = document.getElementById('inJs');
-                inportedIn.innerText = new Date(firstTransaction.importDate).toLocaleString() || 'N/A'; // Replace with correct property if needed
+                inportedIn.innerText = new Date(firstTransaction.importDate).toLocaleString() || 'N/A';
     
                 const transactionDate = document.getElementById('dateJs');
-                transactionDate.innerText = new Date(firstTransaction.transactionDate).toLocaleString() || 'N/A'; // Replace with correct property if needed
+                transactionDate.innerText = new Date(firstTransaction.transactionDate).toLocaleString() || 'N/A';
             } else {
                 console.error('No transactions available');
             }
 
-            const list = document.getElementById('.import__grid');
+            const list = document.getElementById('import__grid');
             list.innerHTML = '';
 
             transactions.forEach(transaction => {

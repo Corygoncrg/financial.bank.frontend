@@ -1,9 +1,10 @@
 @import url(/styles/header.css);
-@import url(/styles/form.css);
+@import url(/styles/import.css);
 @import url(/styles/navbar.css);
 @import url(/styles/user.css);
 @import url(/styles/import-details.css);
 @import url(/styles/analysis.css);
+@import url(/styles/login.css);
 
 :root {
     --main-font: 'Montserrat', sans-serif;

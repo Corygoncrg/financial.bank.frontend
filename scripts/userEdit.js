@@ -1,6 +1,6 @@
 async function showMenu(id, name, email, status) {
 
-    fetch('editUser.html')
+    fetch('userEdit.html')
       .then(response => response.text())
         .then(data => {
             document.getElementById("div__container").innerHTML = data;

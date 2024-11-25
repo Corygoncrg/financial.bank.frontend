@@ -50,7 +50,7 @@ input[type="submit"] {
 
     border-radius: 3px;
     width: 15vw;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     border-style: none;
 }
 
@@ -69,6 +69,6 @@ input[type="submit"] {
     padding: 5px;
     width: 100%;
     height: auto;
-    font-size: 1.1em;
+    font-size: 1.1rem;
 }
 

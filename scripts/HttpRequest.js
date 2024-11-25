@@ -36,9 +36,6 @@ async function login() {
     }
 }
 
-function logout() {
-    localStorage.removeItem('token');
-}
 
 async function deleteUser(id){
     const token = localStorage.getItem('token');

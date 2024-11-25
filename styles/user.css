@@ -29,7 +29,7 @@
 
 .user__button {
   width: 15ch;
-  height: 2em;
+  height: 2rem;
   margin: 2px 0 2px 0;
   background: var(--blue);
   border-radius: 10px;

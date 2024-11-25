@@ -58,7 +58,7 @@
     }
     .navbar__div {
         flex-direction: row;
-        gap: 1em;
+        gap: 1rem;
     }
     .navbar__text:hover {
         color: var(--blue);

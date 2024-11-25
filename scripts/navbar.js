@@ -22,4 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 })  
 .catch(error => console.error('Error loading navbar:', error));
-}); 
+});
+
+function logout() {
+    localStorage.removeItem('token');
+    window.location.href = "login.html";
+}

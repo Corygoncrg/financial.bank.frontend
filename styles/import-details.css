@@ -21,13 +21,13 @@
 
 .details__hero__paragraph {
     background: var(--light-gray);
-    padding: .5em;
+    padding: .5rem;
     border-radius: 5px;
     border-right: 30px;
 }
 
 .section__h2 {
-    font-size: 3em;
+    font-size: 3rem;
     margin-top: 30px;
     font-weight: 400;
     text-align: center;
