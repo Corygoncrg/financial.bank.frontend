@@ -28,6 +28,10 @@
     margin: 10px 0;
 }
 
+.login__section button {
+    display: none;
+}
+
 .login__register:hover {
     font-weight: 500 ;
 }
