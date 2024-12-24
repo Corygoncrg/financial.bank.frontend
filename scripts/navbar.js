@@ -1,13 +1,13 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-    if (!localStorage.getItem('token')) {
+    if (!localStorage.getItem("token")) {
         // Redirect to login if token is missing
         return;
     }
-    fetch('navbar.html')
+    fetch("navbar.html")
       .then(response => response.text())
         .then(data => {
-            document.getElementById('navbar__container').innerHTML = data;
+            document.getElementById("navbar__container").innerHTML = data;
     // Get the current path
     const currentPage = window.location.pathname.split("/").pop();
     
@@ -21,10 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 })  
-.catch(error => console.error('Error loading navbar:', error));
+.catch(error => console.error("Error loading navbar:", error));
 });
 
 function logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     window.location.href = "login.html";
 }

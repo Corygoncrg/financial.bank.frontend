@@ -1,8 +1,16 @@
-const loginURL = 'http://localhost:8082';
-const loginEndpoint = 'login';
+import baseURL from "./config.js";
+const loginEndpoint = "/login";
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loginButton = document.getElementById("login");
+
+    loginButton.addEventListener("click", login);
+});
+
 
 async function login() {
-    const url = `${loginURL}/${loginEndpoint}`
+    const url = `${baseURL}${loginEndpoint}`
 
     let user = document.getElementById("user").value;
     let password= document.getElementById("password").value;
@@ -24,7 +32,7 @@ async function login() {
         if (response.ok) {
             const json = await response.json();
 
-            localStorage.setItem('token', json.token);
+            localStorage.setItem("token", json.token);
 
             window.location.href="/html/users.html";
 

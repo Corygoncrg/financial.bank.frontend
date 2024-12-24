@@ -1,56 +1,56 @@
-const baseURL1 = 'http://localhost:8080';
-document.addEventListener('DOMContentLoaded', () => {
+import baseURL from "./config.js";
+document.addEventListener("DOMContentLoaded", () => {
 
-    const importDate = sessionStorage.getItem('importDate');
+    const importDate = sessionStorage.getItem("importDate");
 
 
     if (importDate) {
-        fetch(`${baseURL1}/transactions/details/${importDate}`, {
-            method: 'GET'
+        fetch(`${baseURL}/transactions/details/${importDate}`, {
+            method: "GET"
         })
         .then(response => response.json())
         .then(transactions => {
             if (transactions.length > 0) {
                 const firstTransaction = transactions[0];
     
-                const importedBy = document.getElementById('byJs');
-                importedBy.innerText = firstTransaction.idUser || 'N/A';
+                const importedBy = document.getElementById("byJs");
+                importedBy.innerText = firstTransaction.idUser || "N/A";
     
-                const inportedIn = document.getElementById('inJs');
-                inportedIn.innerText = new Date(firstTransaction.importDate).toLocaleString() || 'N/A';
+                const inportedIn = document.getElementById("inJs");
+                inportedIn.innerText = new Date(firstTransaction.importDate).toLocaleString() || "N/A";
     
-                const transactionDate = document.getElementById('dateJs');
-                transactionDate.innerText = new Date(firstTransaction.transactionDate).toLocaleString() || 'N/A';
+                const transactionDate = document.getElementById("dateJs");
+                transactionDate.innerText = new Date(firstTransaction.transactionDate).toLocaleString() || "N/A";
             } else {
-                console.error('No transactions available');
+                console.error("No transactions available");
             }
 
-            const list = document.getElementById('import__grid');
-            list.innerHTML = '';
+            const list = document.getElementById("import__grid");
+            list.innerHTML = "";
 
             transactions.forEach(transaction => {
-                const listItem = document.createElement('div');
-                listItem.classList.add('import__row');
+                const listItem = document.createElement("div");
+                listItem.classList.add("import__row");
 
-                const originBank = document.createElement('p');
+                const originBank = document.createElement("p");
                 originBank.textContent = `${(transaction.originalBank).toLocaleString()}`;
 
-                const originAgency = document.createElement('p');
+                const originAgency = document.createElement("p");
                 originAgency.textContent = `${(transaction.originalAgency).toLocaleString()}`;
 
-                const originAccount = document.createElement('p');
+                const originAccount = document.createElement("p");
                 originAccount.textContent = `${(transaction.originalAccount).toLocaleString()}`;
 
-                const destinyBank = document.createElement('p');
+                const destinyBank = document.createElement("p");
                 destinyBank.textContent = `${(transaction.destinyBank).toLocaleString()}`;
 
-                const destinyAgency = document.createElement('p');
+                const destinyAgency = document.createElement("p");
                 destinyAgency.textContent = `${(transaction.destinyAgency).toLocaleString()}`;
 
-                const destinyAccount = document.createElement('p');
+                const destinyAccount = document.createElement("p");
                 destinyAccount.textContent = `${(transaction.destinyAccount).toLocaleString()}`;
 
-                const amount = document.createElement('p');
+                const amount = document.createElement("p");
                 amount.textContent = `R$${(transaction.amount).toLocaleString()}`;
 
                 listItem.appendChild(originBank);
@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 list.appendChild(listItem);
             });
         })
-        .catch(error => console.error('Error fetching details:', error));
+        .catch(error => console.error("Error fetching details:", error));
     } else {
-        console.error('Import date not found in sessionStorage');
+        console.error("Import date not found in sessionStorage");
     }
 });

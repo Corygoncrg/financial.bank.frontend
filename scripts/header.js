@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch('header.html')
+    fetch("header.html")
       .then(response => response.text())
         .then(data => {
-            document.getElementById('header__container').innerHTML = data;
+            document.getElementById("header__container").innerHTML = data;
 })  
-.catch(error => console.error('Error loading navbar:', error));
+.catch(error => console.error("Error loading navbar:", error));
 }); 

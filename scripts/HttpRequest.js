@@ -1,16 +1,18 @@
-const baseURL = 'http://localhost:8081';
-const endpoint = '/users'
+import baseURL from "./config.js";
+const endpoint = "/users"
+const token = localStorage.getItem("token");
 
 async function deleteUser(id){
-    const token = localStorage.getItem('token');
-
-    console.log(`${baseURL}${endpoint}/current-user`)
+    // send a request for the security module instead.
+    const payloadBase64 = token.split(".")[1];
+    const payload = JSON.parse(atob(payloadBase64));
     const currentUser = await fetch(`${baseURL}${endpoint}/current-user`, {
-        method: "GET",
+        method: "POST",
         headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-        }
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json",
+        },
+        body: payload.sub
     });
     console.log(currentUser);
 
@@ -24,8 +26,8 @@ async function deleteUser(id){
     const options = {
         method: "DELETE",
         headers: {
-            'Authorization': `Bearer ${token}`, // Include token in the header
-            'Content-Type': 'application/json'
+            "Authorization": `Bearer ${token}`, // Include token in the header
+            "Content-Type": "application/json"
         }
     };
     const url = `${baseURL}${endpoint}/${id}`;
@@ -35,7 +37,6 @@ async function deleteUser(id){
 }
 
 async function updateUser(id){
-    const token = localStorage.getItem('token');
 
     const url = `${baseURL}${endpoint}`;
     let updatedName = document.getElementById("update__name").value;
@@ -46,10 +47,10 @@ async function updateUser(id){
         id: id
     };
 
-    if(updatedName !== '') {
+    if(updatedName !== "") {
         updatedUserData.name = updatedName;
     }
-    if (updatedEmail !== '') {
+    if (updatedEmail !== "") {
         updatedUserData.email = updatedEmail;
     }
 
@@ -61,7 +62,7 @@ async function updateUser(id){
     const options = {
         method: "PUT",
         headers: {
-            'Authorization': `Bearer ${token}`,
+            "Authorization": `Bearer ${token}`, // Include token in the header
             "Content-Type": "application/json"
         },
         body: JSON.stringify(updatedUserData)};
@@ -71,7 +72,7 @@ async function updateUser(id){
                 if (response.ok) {
                     const json = await response.text();
                     console.log("User updated:", json);
-                    document.getElementById('div__container').innerHTML = '';
+                    document.getElementById("div__container").innerHTML = "";
                 } else {
                     console.log("Update failed with status:", response.status);
                 }
@@ -79,3 +80,6 @@ async function updateUser(id){
                 console.error("Error updating user:", error);
             }
 }
+
+export {deleteUser};
+export {updateUser};

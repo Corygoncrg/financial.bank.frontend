@@ -4,8 +4,8 @@
         if (!token) return true;
 
         try {
-            // Decode the payload of the token (it's the second part of the JWT)
-            const payloadBase64 = token.split('.')[1];
+            // Decode the payload of the token (it"s the second part of the JWT)
+            const payloadBase64 = token.split(".")[1];
             const payload = JSON.parse(atob(payloadBase64));
             
             // Get the current time in seconds
@@ -23,15 +23,15 @@
     }
 
     // Check for the token in localStorage and handle accordingly
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (!token || isTokenExpired(token)) {
         // Clear the token from localStorage and redirect if expired or missing
-        localStorage.removeItem('token');
+        localStorage.removeItem("token");
         window.location.href = "login.html";
     } else {
         // Populate the hidden input field with the token if the DOM contains it
-        document.addEventListener('DOMContentLoaded', () => {
-            const tokenInput = document.getElementById('token');
+        document.addEventListener("DOMContentLoaded", () => {
+            const tokenInput = document.getElementById("token");
             if (tokenInput) {
                 tokenInput.value = token;
             }
