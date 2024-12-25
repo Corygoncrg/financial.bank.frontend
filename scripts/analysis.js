@@ -78,36 +78,36 @@ async function searchTransactions() {
 async function searchAccounts(year, month) {
   
 
-    fetch(`${baseURL1}/accounts/analyses/${year}/${month}`)
+    fetch(`${baseURL}/transactions/accounts/analyses/${year}/${month}`)
         .then(response => response.json())
         .then(accounts => {
             const list = document.getElementById("suspected__accounts__grid");
             list.innerHTML = "";
 
-            accounts.forEach(account => {
+            accounts.forEach(Account => {
                 const listItem = document.createElement("div");
                 listItem.classList.add("suspected__accounts__row");
 
                 const bank = document.createElement("p");
-                bank.textContent = `${(account.bank).toLocaleString()}`;
+                bank.textContent = `${(Account.bank).toLocaleString()}`;
                 
                 const agency = document.createElement("p");
-                agency.textContent = `${(account.agency).toLocaleString()}`;
+                agency.textContent = `${(Account.agency).toLocaleString()}`;
                 
-                const acc = document.createElement("p");
-                acc.textContent = `${(account.account).toLocaleString()}`;
+                const account = document.createElement("p");
+                account.textContent = `${(Account.account).toLocaleString()}`;
                 
                 const totalAmountMoved = document.createElement("p");
-                totalAmountMoved.textContent = `${(account.totalAmountMoved).toLocaleString()}`;
+                totalAmountMoved.textContent = `${(Account.totalAmountMoved).toLocaleString()}`;
                 
                 const transferType = document.createElement("p");
-                transferType.textContent = `${(account.transferType).toLocaleString()}`;
+                transferType.textContent = `${(Account.transferType).toLocaleString()}`;
                 
 
 
                 listItem.appendChild(bank);
                 listItem.appendChild(agency);
-                listItem.appendChild(acc);
+                listItem.appendChild(account);
                 listItem.appendChild(totalAmountMoved);
                 listItem.appendChild(transferType);
 
@@ -118,36 +118,46 @@ async function searchAccounts(year, month) {
 
 async function searchAgencies(year, month) {
 
-    fetch(`${baseURL1}/agencies/analyses/${year}/${month}`)
+    fetch(`${baseURL}/transactions/agencies/analyses/${year}/${month}`)
         .then(response => response.json())
         .then(agencies => {
             const list = document.getElementById("suspected__agencies__grid");
             list.innerHTML = "";
 
-            agencies.forEach(agency => {
+            agencies.forEach(Agency => {
                 const listItem = document.createElement("div");
                 listItem.classList.add("suspected__agencies__row");
 
                 const bank = document.createElement("p");
-                bank.textContent = `${(agency.bank).toLocaleString()}`;
+                bank.textContent = `${(Agency.bank).toLocaleString()}`;
                 
-                const ag = document.createElement("p");
-                ag.textContent = `${(agency.agency).toLocaleString()}`;
+                const agency = document.createElement("p");
+                agency.textContent = `${(Agency.agency).toLocaleString()}`;
             
                 
                 const totalAmountMoved = document.createElement("p");
-                totalAmountMoved.textContent = `${(agency.totalAmountMoved).toLocaleString()}`;
+                totalAmountMoved.textContent = `${(Agency.totalAmountMoved).toLocaleString()}`;
                 
                 const transferType = document.createElement("p");
-                transferType.textContent = `${(agency.transferType).toLocaleString()}`;
+                transferType.textContent = `${(Agency.transferType).toLocaleString()}`;
                 
 
                  listItem.appendChild(bank);
-                listItem.appendChild(ag);
+                listItem.appendChild(agency);
                 listItem.appendChild(totalAmountMoved);
                 listItem.appendChild(transferType);
 
                 list.appendChild(listItem);
             });
         });
+}
+
+const submit = document.getElementById("submit");
+submit.addEventListener("submit", handleUpload);
+
+function handleUpload(event) {
+    event.preventDefault();
+    console.log("st");
+    
+    searchTransactions();
 }

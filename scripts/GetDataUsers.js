@@ -5,7 +5,6 @@ const endpoint = "/users/users";
 const url = `${baseURL}${endpoint}`;
 
     const token = localStorage.getItem("token");
-    console.log(token);
     
     fetch(url, {
         method: "GET",
@@ -15,10 +14,10 @@ const url = `${baseURL}${endpoint}`;
 
     })
     .then(response => {
-        // if (response.status === 401) {
-        //     // Redirect to login if token is invalid or expired
-        //     window.location.href = "login.html";
-        // }
+        if (response.status === 401) {
+            // Redirect to login if token is invalid or expired
+            window.location.href = "login.html";
+        }
         return response.json();
     })
     

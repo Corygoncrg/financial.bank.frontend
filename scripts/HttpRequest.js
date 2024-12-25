@@ -1,5 +1,5 @@
 import baseURL from "./config.js";
-const endpoint = "/users"
+const endpoint = "/users/users"
 const token = localStorage.getItem("token");
 
 async function deleteUser(id){

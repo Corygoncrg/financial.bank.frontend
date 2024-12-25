@@ -17,7 +17,7 @@ async function showMenu(id, name, email, status) {
             modal.style.display = "block";
 
 
-            document.getElementById("update").setAttribute("onclick", updateUser(id));
+            document.getElementById("update").addEventListener("click", ()=> updateUser(id));
                 }
             )  
              .catch(error => console.error("Error loading edit form:", error));

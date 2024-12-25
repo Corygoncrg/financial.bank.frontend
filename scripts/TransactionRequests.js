@@ -55,3 +55,39 @@ function formatDateToISOString(date) {
     const seconds = String(date.getSeconds()).padStart(2, "0");
     return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 }
+
+const form = document.querySelector("form");
+form.addEventListener("submit", handleUpload)
+
+function handleUpload(event) {
+    event.preventDefault();
+
+    PostTransaction();
+}
+
+async function PostTransaction() {
+
+    const url = `${baseURL}${endpoint}`;
+    const formData = new FormData(form)
+
+    const options = {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        },
+        body: formData};
+
+            try {
+                const response = await fetch(url, options);
+                if (response.ok) {
+                    const json = await response.text();
+                    console.log("User updated:", json);
+                    document.getElementById("div__container").innerHTML = "";
+                } else {
+                    console.log("Update failed with status:", response.status);
+                }
+            } catch (error) {
+                console.error("Error updating user:", error);
+            }
+    
+}
