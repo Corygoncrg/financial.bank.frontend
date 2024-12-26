@@ -153,11 +153,10 @@ async function searchAgencies(year, month) {
 }
 
 const submit = document.getElementById("submit");
-submit.addEventListener("submit", handleUpload);
+submit.addEventListener("click", handleUpload);
 
 function handleUpload(event) {
     event.preventDefault();
-    console.log("st");
     
     searchTransactions();
 }

@@ -63,6 +63,7 @@ function handleUpload(event) {
     event.preventDefault();
 
     PostTransaction();
+
 }
 
 async function PostTransaction() {
@@ -83,6 +84,7 @@ async function PostTransaction() {
                     const json = await response.text();
                     console.log("User updated:", json);
                     document.getElementById("div__container").innerHTML = "";
+                    window.location.href="/html/import.html";
                 } else {
                     console.log("Update failed with status:", response.status);
                 }
