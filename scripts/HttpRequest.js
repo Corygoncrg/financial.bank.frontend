@@ -1,6 +1,5 @@
-import baseURL from "./config.js";
-const endpoint = "/users/users"
-const token = localStorage.getItem("token");
+import { baseURL, headers, token } from "./config.js";
+const endpoint = "/users"
 
 async function deleteUser(id){
     // send a request for the security module instead.
@@ -25,10 +24,7 @@ async function deleteUser(id){
 
     const options = {
         method: "DELETE",
-        headers: {
-            "Authorization": `Bearer ${token}`, // Include token in the header
-            "Content-Type": "application/json"
-        }
+        headers
     };
     const url = `${baseURL}${endpoint}/${id}`;
     console.log(`${url}/${id}`)
@@ -61,10 +57,7 @@ async function updateUser(id){
 
     const options = {
         method: "PUT",
-        headers: {
-            "Authorization": `Bearer ${token}`, // Include token in the header
-            "Content-Type": "application/json"
-        },
+        headers,
         body: JSON.stringify(updatedUserData)};
 
             try {

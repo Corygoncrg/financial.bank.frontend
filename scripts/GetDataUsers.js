@@ -1,23 +1,26 @@
-import baseURL from "./config.js";
+import { baseURL, headers } from "./config.js";
 import showMenu from "./userEdit.js";
 import { deleteUser } from "./HttpRequest.js";
-const endpoint = "/users/users";
+const endpoint = "/users";
 const url = `${baseURL}${endpoint}`;
 
-    const token = localStorage.getItem("token");
     
     fetch(url, {
         method: "GET",
-        headers: {
-            "Authorization": `Bearer ${token}`,
-            "Content-Type": "application/json"}
+        headers
 
     })
-    .then(response => {
+    .then(async (response) => {
         if (response.status === 401) {
             // Redirect to login if token is invalid or expired
             window.location.href = "login.html";
         }
+        if (!response.ok) {
+            // Parse error response
+            const errorData = await response.json();
+            
+            throw new Error(`Error fetching users: ${errorData.error}`);
+          }          
         return response.json();
     })
     

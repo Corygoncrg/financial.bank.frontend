@@ -1,11 +1,11 @@
-import baseURL from "./config.js";
+import { baseURL, token, headers } from "./config.js";
 const endpoint = "/transactions"
+
+
 
     fetch(`${baseURL}${endpoint}`, {
         method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
+        headers
     })
         .then(response => response.json())
         .then(transactions => {

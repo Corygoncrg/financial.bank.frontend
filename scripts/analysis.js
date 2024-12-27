@@ -1,7 +1,7 @@
-import baseURL from "./config.js";
+import { baseURL, headers } from "./config.js";
+
 const yearSelect = document.querySelector("#year");
 
-// Get the current year as a number
 const date = new Date();
 const year = date.getFullYear();
 
@@ -22,7 +22,8 @@ async function searchTransactions() {
     console.log(date)
 
     fetch(`${baseURL}/transactions/analyses/${date}`, {
-        method: "GET"
+        method: "GET",
+        headers
     })
         .then(response => response.json())
 
@@ -77,8 +78,10 @@ async function searchTransactions() {
 
 async function searchAccounts(year, month) {
   
-
-    fetch(`${baseURL}/transactions/accounts/analyses/${year}/${month}`)
+    fetch(`${baseURL}/transactions/accounts/analyses/${year}/${month}`, {
+        method: "GET",
+        headers
+    })
         .then(response => response.json())
         .then(accounts => {
             const list = document.getElementById("suspected__accounts__grid");
@@ -118,7 +121,10 @@ async function searchAccounts(year, month) {
 
 async function searchAgencies(year, month) {
 
-    fetch(`${baseURL}/transactions/agencies/analyses/${year}/${month}`)
+    fetch(`${baseURL}/transactions/agencies/analyses/${year}/${month}`, {
+        method: "GET",
+        headers
+    })
         .then(response => response.json())
         .then(agencies => {
             const list = document.getElementById("suspected__agencies__grid");

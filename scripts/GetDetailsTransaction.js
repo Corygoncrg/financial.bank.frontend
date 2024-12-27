@@ -1,12 +1,12 @@
-import baseURL from "./config.js";
-document.addEventListener("DOMContentLoaded", () => {
+import { baseURL, headers } from "./config.js";
 
     const importDate = sessionStorage.getItem("importDate");
 
 
     if (importDate) {
         fetch(`${baseURL}/transactions/details/${importDate}`, {
-            method: "GET"
+            method: "GET",
+            headers
         })
         .then(response => response.json())
         .then(transactions => {
@@ -66,5 +66,4 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => console.error("Error fetching details:", error));
     } else {
         console.error("Import date not found in sessionStorage");
-    }
-});
+    };
