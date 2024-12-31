@@ -1,24 +1,33 @@
 <div id="div__modal" class="modal">
     <div class="edit__div">
-        <div class="input__div">  
-            <p class="padding__left" id="current__name">example</p>
-            <input type="text" id="update__name" placeholder="name">
-
-        </div>
         <div class="input__div">
-            <p class="padding__left" id="current__email">example@email.com</p> 
+            <div class="flex">
+                <p>Name: </p>
+                <p class="" id="current__name">example</p>
+            </div>
+            <input type="text" id="update__name" placeholder="name">
+        </div>
 
+        <div class="input__div">
+            <div class="flex">
+                <p>Email: </p>
+                <p class="" id="current__email"></p>
+            </div>
             <input type="email" id="update__email" placeholder="example@email.com">
         </div>
-        <div class="input__div">
-            <p class="padding__left" id="current__status">EXAMPLE</p> 
 
+        <div class="input__div">
+            <div class="flex">
+                <p>Current status: </p>
+                <p class="" id="current__status"></p>
+            </div>
             <input type="radio" id="active" name="update__status" value="ACTIVE">
             <label for="active">ACTIVE</label><br>
-            
+
             <input type="radio" id="not_active" name="update__status" value="NOT_ACTIVE">
             <label for="not_active">NOT ACTIVE</label>
         </div>
+        
         <div class="form__upload">
             <label class="label__button" for="update">Update</label>
             <button type="submit" id="update"></button>
