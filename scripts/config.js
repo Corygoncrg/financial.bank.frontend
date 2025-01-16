@@ -1,9 +1,14 @@
-const baseURL = "http://localhost:8083";
+let baseURL;
 
-// Get the token from localStorage
+if (window.location.hostname === "localhost") {
+  baseURL = "http://localhost:8083";
+} else {
+  baseURL = "http://gateway:8083";
+}
+
 const token = localStorage.getItem("token");
 
-// Define headers
+
 const headers = {
   "Authorization": `Bearer ${token}`,
   "Content-Type": "application/json"
