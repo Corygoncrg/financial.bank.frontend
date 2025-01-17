@@ -1,9 +1,9 @@
+import { userEditHtml } from "./config.js";
 import { updateUser } from "./HttpRequest.js";
-
 
 async function showMenu(id, name, email, status) {
 
-    fetch("userEdit.html")
+    fetch(userEditHtml)
       .then(response => response.text())
         .then(data => {
             document.getElementById("div__container").innerHTML = data;

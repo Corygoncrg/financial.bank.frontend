@@ -1,10 +1,11 @@
+import { navbarHtml, loginHtml } from "./config.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     if (!localStorage.getItem("token")) {
         // Redirect to login if token is missing
         return;
     }
-    fetch("navbar.html")
+    fetch(navbarHtml)
       .then(response => response.text())
         .then(data => {
             document.getElementById("navbar__container").innerHTML = data;
@@ -26,5 +27,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function logout() {
     localStorage.removeItem("token");
-    window.location.href = "login.html";
+    window.location.href = loginHtml;
 }

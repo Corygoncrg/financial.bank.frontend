@@ -1,10 +1,11 @@
-let baseURL;
-
-if (window.location.hostname === "localhost") {
-  baseURL = "http://localhost:8083";
-} else {
-  baseURL = "http://gateway:8083";
-}
+let baseURL = process.env.BASE_URL || "http://localhost:8083";
+let loginHtml = process.env.loginHtml || "login.html";
+let headerHtml = process.env.headerHtml || "header.html";
+let navbarHtml = process.env.navbarHtml || "navbar.html";
+let userEditHtml = process.env.userEditHtml || "userEdit.html";
+let importHtml = process.env.importHtml || "import.html";
+let importDetailsHtml = process.env.importDetailsHtml || "import-details.html";
+let usersHtml = process.env.usersHtml || "users.html";
 
 const token = localStorage.getItem("token");
 
@@ -14,4 +15,4 @@ const headers = {
   "Content-Type": "application/json"
 };
 
-export { baseURL, token, headers };
+export { baseURL, loginHtml, headerHtml, navbarHtml, userEditHtml, importHtml, importDetailsHtml, usersHtml, token, headers };

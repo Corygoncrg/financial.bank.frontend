@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:18-alpine
 
 WORKDIR /app
 
@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . .
 
+RUN npx webpack --config webpack.config.js
+
 EXPOSE 5500
 
-CMD ["npx", "live-server", "--port=5500", "--host=0.0.0.0"]
+CMD ["npx", "live-server", "--port=5500", "--host=0.0.0.0", "--entry-file=/html/login.html"]

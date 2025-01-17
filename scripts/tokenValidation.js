@@ -1,3 +1,5 @@
+import { loginHtml } from "./config.js";
+
 (function() {
     // Function to check if the token is expired
     function isTokenExpired(token) {
@@ -27,7 +29,7 @@
     if (!token || isTokenExpired(token)) {
         // Clear the token from localStorage and redirect if expired or missing
         localStorage.removeItem("token");
-        window.location.href = "login.html";
+        window.location.href = loginHtml;
     } else {
         // Populate the hidden input field with the token if the DOM contains it
         document.addEventListener("DOMContentLoaded", () => {

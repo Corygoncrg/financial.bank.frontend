@@ -1,5 +1,7 @@
+import { headerHtml } from "./config.js";
+
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("header.html")
+    fetch(headerHtml)
       .then(response => response.text())
         .then(data => {
             document.getElementById("header__container").innerHTML = data;

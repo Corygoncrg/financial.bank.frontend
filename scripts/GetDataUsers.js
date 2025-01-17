@@ -1,9 +1,8 @@
-import { baseURL, headers } from "./config.js";
+import { baseURL, headers, loginHtml } from "./config.js";
 import showMenu from "./userEdit.js";
 import { deleteUser } from "./HttpRequest.js";
 const endpoint = "/users";
 const url = `${baseURL}${endpoint}`;
-
     
     fetch(url, {
         method: "GET",
@@ -13,7 +12,7 @@ const url = `${baseURL}${endpoint}`;
     .then(async (response) => {
         if (response.status === 401) {
             // Redirect to login if token is invalid or expired
-            window.location.href = "login.html";
+            window.location.href = loginHtml;
         }
         if (!response.ok) {
             // Parse error response

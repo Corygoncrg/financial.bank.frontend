@@ -1,6 +1,5 @@
-import { baseURL } from "./config.js";
+import { baseURL, usersHtml } from "./config.js";
 const loginEndpoint = "/login";
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const loginButton = document.getElementById("login");
@@ -34,7 +33,7 @@ async function login() {
 
             localStorage.setItem("token", json.token);
 
-            window.location.href="/html/users.html";
+            window.location.href=usersHtml;
 
         } else {
             console.log("Login failed with status:", response.status);

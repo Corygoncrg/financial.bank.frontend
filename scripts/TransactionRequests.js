@@ -1,7 +1,5 @@
-import { baseURL, token, headers } from "./config.js";
+import { baseURL, token, headers, importDetailsHtml, importHtml } from "./config.js";
 const endpoint = "/transactions"
-
-
 
     fetch(`${baseURL}${endpoint}`, {
         method: "GET",
@@ -34,7 +32,7 @@ const endpoint = "/transactions"
                 detailButton.classList.add("user__button");
                 detailButton.addEventListener("click", async () => {
                     sessionStorage.setItem("importDate", formattedImportDate);
-                    window.location.href = "import-details.html";
+                    window.location.href = importDetailsHtml;
                 });
 
                 listItem.appendChild(transactionDate);
@@ -84,7 +82,7 @@ async function PostTransaction() {
                     const json = await response.text();
                     console.log("User updated:", json);
                     document.getElementById("div__container").innerHTML = "";
-                    window.location.href="/html/import.html";
+                    window.location.href=importHtml;
                 } else {
                     console.log("Update failed with status:", response.status);
                 }
