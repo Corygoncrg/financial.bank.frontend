@@ -1,10 +1,18 @@
+const path = require("path");
 const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-  entry: "./scripts/main.js",
+  entry: {
+    login: "./scripts/main/mainLogin.js",
+    analysis: "./scripts/main/mainAnalysis.js",
+    users: "./scripts/main/mainUsers.js",
+    import: "./scripts/main/mainImport.js",
+    importDetails: "./scripts/main/mainImportDetails.js",
+    signUp: "./scripts/main/mainSignUp.js",
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js", 
+    filename: "[name].bundle.js", 
   },
   mode: process.env.NODE_ENV || "development",
   plugins: [
