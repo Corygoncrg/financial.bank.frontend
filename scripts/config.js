@@ -1,11 +1,11 @@
-let baseURL = process.env.BASE_URL || "http://localhost:8083";
-let loginHtml = process.env.loginHtml || "login.html";
-let headerHtml = process.env.headerHtml || "header.html";
-let navbarHtml = process.env.navbarHtml || "navbar.html";
-let userEditHtml = process.env.userEditHtml || "userEdit.html";
-let importHtml = process.env.importHtml || "import.html";
-let importDetailsHtml = process.env.importDetailsHtml || "import-details.html";
-let usersHtml = process.env.usersHtml || "users.html";
+let baseURL = process.env.BASE_URL;
+let loginHtml = process.env.loginHtml;
+let headerHtml = process.env.headerHtml;
+let navbarHtml = process.env.navbarHtml;
+let userEditHtml = process.env.userEditHtml;
+let importHtml = process.env.importHtml;
+let importDetailsHtml = process.env.importDetailsHtml;
+let usersHtml = process.env.usersHtml;
 
 const token = localStorage.getItem("token");
 
