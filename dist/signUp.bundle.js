@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config.js */ \"./scripts/config.js\");\n/* harmony import */ var _navbar_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navbar.js */ \"./scripts/navbar.js\");\n\n\n\n//# sourceURL=webpack://financial-transactions-frontend/./scripts/main/mainSignUp.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config.js */ \"./scripts/config.js\");\n/* harmony import */ var _navbar_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../navbar.js */ \"./scripts/navbar.js\");\n/* harmony import */ var _signup_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../signup.js */ \"./scripts/signup.js\");\n\n\n\n\n//# sourceURL=webpack://financial-transactions-frontend/./scripts/main/mainSignUp.js?");
 
 /***/ }),
 
@@ -37,6 +37,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _con
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config.js */ \"./scripts/config.js\");\n\n\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n    if (!localStorage.getItem(\"token\")) {\n        // Redirect to login if token is missing\n        return;\n    }\n    fetch(_config_js__WEBPACK_IMPORTED_MODULE_0__.navbarHtml)\n      .then(response => response.text())\n        .then(data => {\n            document.getElementById(\"navbar__container\").innerHTML = data;\n    // Get the current path\n    const currentPage = window.location.pathname.split(\"/\").pop();\n    \n    // Get all the navbar links\n    const navbarLinks = document.querySelectorAll(\".navbar__link\");\n\n    // Loop through the links and apply the font-weight to the active page\n    navbarLinks.forEach(link => {\n        if (link.getAttribute(\"href\") === currentPage) {\n            link.style.fontWeight = \"700\";\n        }\n    });\n})  \n.catch(error => console.error(\"Error loading navbar:\", error));\n});\n\nfunction logout() {\n    localStorage.removeItem(\"token\");\n    window.location.href = _config_js__WEBPACK_IMPORTED_MODULE_0__.loginHtml;\n}\n\n\n//# sourceURL=webpack://financial-transactions-frontend/./scripts/navbar.js?");
+
+/***/ }),
+
+/***/ "./scripts/signup.js":
+/*!***************************!*\
+  !*** ./scripts/signup.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config.js */ \"./scripts/config.js\");\n\nconst endpoint = \"/users\"\n\nconst form = document.querySelector(\"form\");\nform.addEventListener(\"submit\", handleUpload)\n\nfunction handleUpload(event) {\n    event.preventDefault();\n\n    Signup();\n\n}\n\nasync function Signup() {\n    const url = `${_config_js__WEBPACK_IMPORTED_MODULE_0__.baseURL}${endpoint}`;\n\n    let signupName = document.getElementById(\"signup__username\").value;\n    let signupEmail = document.getElementById(\"signup__email\").value;\n\n    let signupData = {\n        username: signupName,\n        email: signupEmail\n    };\n    const options = {\n        method: \"POST\",\n        headers: { \"Content-Type\": \"application/json\" },\n        body: JSON.stringify(signupData)\n        };\n\n            try {\n                const response = await fetch(url, options);\n                if (response.ok) {\n                    document.getElementById(\"div__container\").innerHTML = \"\";\n                } else {\n                    console.log(\"Failed creating user with status: \", response.status);\n                }\n            } catch (error) {\n                console.error(\"Error creating user: \", error);\n            }\n    \n}\n\n//# sourceURL=webpack://financial-transactions-frontend/./scripts/signup.js?");
 
 /***/ })
 

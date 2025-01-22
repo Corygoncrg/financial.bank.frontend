@@ -1,4 +1,8 @@
+ARG NODE_ENV=development
+
 FROM node:18-alpine
+
+ENV NODE_ENV=$NODE_ENV
 
 WORKDIR /app
 
@@ -8,7 +12,9 @@ RUN npm install
 
 COPY . .
 
-RUN npx webpack --config webpack.config.js
+ARG NODE_ENV
+
+RUN NODE_ENV=$NODE_ENV npx webpack --config webpack.config.js
 
 EXPOSE 5500
 
