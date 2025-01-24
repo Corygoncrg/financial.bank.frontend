@@ -25,6 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
 .catch(error => console.error("Error loading navbar:", error));
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const logoutButton = document.getElementById("logout");
+
+    logoutButton.addEventListener("click", logout);
+});
+
 function logout() {
     localStorage.removeItem("token");
     window.location.href = loginHtml;

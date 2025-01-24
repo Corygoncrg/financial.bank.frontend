@@ -79,15 +79,13 @@ async function PostTransaction() {
             try {
                 const response = await fetch(url, options);
                 if (response.ok) {
-                    const json = await response.text();
-                    console.log("User updated:", json);
                     document.getElementById("div__container").innerHTML = "";
                     window.location.href=importHtml;
                 } else {
-                    console.log("Update failed with status:", response.status);
+                    console.log("Upload failed with status: ", response.status);
                 }
             } catch (error) {
-                console.error("Error updating user:", error);
+                console.error("Error uploading transaction: ", error);
             }
     
 }
