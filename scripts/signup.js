@@ -1,5 +1,5 @@
 import { baseURL } from "./config.js";
-const endpoint = "/users"
+const endpoint = "/users/signup"
 
 const form = document.querySelector("form");
 form.addEventListener("submit", handleUpload)
