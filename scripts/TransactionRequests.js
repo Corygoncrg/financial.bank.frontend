@@ -79,7 +79,6 @@ async function PostTransaction() {
             try {
                 const response = await fetch(url, options);
                 if (response.ok) {
-                    document.getElementById("div__container").innerHTML = "";
                     window.location.href=importHtml;
                 } else {
                     console.log("Upload failed with status: ", response.status);

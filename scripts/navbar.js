@@ -1,10 +1,8 @@
 import { navbarHtml, loginHtml } from "./config.js";
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    if (!localStorage.getItem("token")) {
-        // Redirect to login if token is missing
-        return;
-    }
     fetch(navbarHtml)
       .then(response => response.text())
         .then(data => {
@@ -26,6 +24,35 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+    const navbarContainer = document.getElementById("navbar__container");
+    if (navbarContainer) {
+        navbarContainer.innerHTML = `
+            <div class="navbar__div">
+                <a class="navbar__link" href="import.html">Import</a>
+            </div>
+            <div class="navbar__div">
+                <a class="navbar__link" href="analysis.html">Analysis</a>
+            </div>
+            <div class="navbar__div">
+                <a class="navbar__link" href="users.html">User</a>
+            </div>
+            <div class="navbar__div">
+                <a class="navbar__link right" href="login.html">Login</a>
+            </div>
+            <div class="navbar__div">
+                <a class="navbar__link" href="signup.html">Sign-up</a>
+            </div>
+            <div class="navbar__div">
+                <a href="javascript:void(0)" id="logout">Log-out</a>
+            </div>
+        `;
+
+        // Dispatch a custom event to signal the navbar is ready
+        document.dispatchEvent(new CustomEvent("navbarLoaded"));
+    }
+});
+
+document.addEventListener("navbarLoaded", () => {
     const logoutButton = document.getElementById("logout");
 
     logoutButton.addEventListener("click", logout);
