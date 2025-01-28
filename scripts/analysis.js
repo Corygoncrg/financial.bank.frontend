@@ -5,7 +5,6 @@ const yearSelect = document.querySelector("#year");
 const date = new Date();
 const year = date.getFullYear();
 
-// Make this year, and the 100 years before it available in the year <select>
 for (let i = 0; i <= 100; i++) {
     const option = document.createElement("option");
     option.textContent = year - i;
@@ -14,8 +13,6 @@ for (let i = 0; i <= 100; i++) {
 
 
 async function searchTransactions() {
-    // const list = document.querySelector(".import__grid");
-    //         list.innerHTML = "";
     const month = document.getElementById("month").value;
     const year = document.getElementById("year").value;
     const date = year + "/" + month;

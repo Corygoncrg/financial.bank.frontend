@@ -1,13 +1,11 @@
 import { navbarHtml, loginHtml } from "./config.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Fetch and load the navbar
     fetch(navbarHtml)
         .then((response) => response.text())
         .then((data) => {
             document.getElementById("navbar__container").innerHTML = data;
 
-            // Highlight the active page
             const currentPage = window.location.pathname.split("/").pop();
             const navbarLinks = document.querySelectorAll(".navbar__link");
 
@@ -17,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
 
-            // Add logout event listener
             const logoutButton = document.getElementById("logout");
             if (logoutButton) {
                 logoutButton.addEventListener("click", logout);

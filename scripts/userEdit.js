@@ -28,7 +28,6 @@ async function showMenu(id, name, email, status) {
 var modal = document.getElementById("div__modal");
 
 window.onclick = function(event) {
-    // Check if the clicked target is the modal but NOT the form inside it
     if (event.target == modal && !event.target.closest(".edit__div")) {
         modal.style.display = "none";
     }

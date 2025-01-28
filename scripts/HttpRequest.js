@@ -2,7 +2,6 @@ import { baseURL, headers, token } from "./config.js";
 const endpoint = "/users"
 
 async function deleteUser(id){
-    // send a request for the security module instead.
     const payloadBase64 = token.split(".")[1];
     const payload = JSON.parse(atob(payloadBase64));
     const currentUser = await fetch(`${baseURL}${endpoint}/current-user`, {

@@ -11,11 +11,9 @@ const url = `${baseURL}${endpoint}`;
     })
     .then(async (response) => {
         if (response.status === 401) {
-            // Redirect to login if token is invalid or expired
             window.location.href = loginHtml;
         }
         if (!response.ok) {
-            // Parse error response
             const errorData = await response.json();
             
             throw new Error(`Error fetching users: ${errorData.error}`);
