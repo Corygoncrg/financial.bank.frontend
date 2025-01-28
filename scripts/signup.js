@@ -1,4 +1,4 @@
-import { baseURL } from "./config.js";
+import { baseURL, loginHtml } from "./config.js";
 const endpoint = "/users/signup"
 
 const form = document.querySelector("form");
@@ -30,9 +30,18 @@ async function Signup() {
             try {
                 const response = await fetch(url, options);
                 if (response.ok) {
-                    document.getElementById("div__container").innerHTML = "";
+                      response.text().then(message => {
+                        console.log("Message from server:", message);
+                        alert("An email has been sent to your email address with the verification link.");
+                        window.location.href = loginHtml;
+                });
+
                 } else {
-                    console.log("Failed creating user with status: ", response.status);
+                     response.text().then(message => {
+                        console.log("Failed creating user with status:", response.status);
+                        console.log("Error message from server:", message);
+                        alert("Error: " + message);
+                });
                 }
             } catch (error) {
                 console.error("Error creating user: ", error);
